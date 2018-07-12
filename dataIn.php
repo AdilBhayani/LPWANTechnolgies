@@ -27,11 +27,11 @@
        fclose($fl);
      }
 	 if ( $f2 = fopen(($_id. 'RSSI.json'),'a')) {
-		 fwrite($f2, "\n[\"". $_time . ",". $_rssi. "]]");
+		 fwrite($f2, "[\"". $_time . "\",". $_rssi. "]]");
 		 fclose($f2);
 	 }
 	 $f2 = $_id. 'RSSI.json';
-	 file_put_contents($f2,str_replace(']]\n[','],\n[',file_get_contents($f2)));
+	 file_put_contents($f2,str_replace(']][','],[',file_get_contents($f2)));
   ?>
   </body>
 </html>
