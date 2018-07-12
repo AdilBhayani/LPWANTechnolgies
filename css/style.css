@@ -1,0 +1,12 @@
+#page-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: White;
+    
+}
+
+h1#app-name{
+  font-size: 60px;
+  color: darkblue;  
+}
