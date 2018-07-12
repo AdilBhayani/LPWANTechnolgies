@@ -27,12 +27,14 @@
 							 ."\"avgSignal\" :\"" . $_avgSignal . "\" }\n" );
        fclose($fl);
      }
-	 if ( $f2 = fopen(($_id. 'RSSI.json'),'a')) {
-		 fwrite($f2, "[\"". $_dt . "\",". $_rssi. "]]");
-		 fclose($f2);
-	 }
-	 $f2 = $_id. 'RSSI.json';
-	 file_put_contents($f2,str_replace(']][','],[',file_get_contents($f2)));
+    if (strcmp($_station,"3597") == 0) {
+        if ( $f2 = fopen(($_id. 'RSSI.json'),'a')) {
+            fwrite($f2, "[\"". $_dt . "\",". $_rssi. "]]");
+            fclose($f2);
+        }
+        $f2 = $_id. 'RSSI.json';
+        file_put_contents($f2,str_replace(']][','],[',file_get_contents($f2)));
+    }
   ?>
   </body>
 </html>
