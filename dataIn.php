@@ -26,8 +26,8 @@
 							 ."\"avgSignal\" :\"" . $_avgSignal . "\" }\n" );
        fclose($fl);
      }
-	 if ( $f2 = fopen(($_id. 'RSSI.json','a')) {
-		 fwrite($f2, "\n[\"". $_time . "\,". $_signal . "]]");
+	 if ( $f2 = fopen(($_id. 'RSSI.json'),'a')) {
+		 fwrite($f2, "\n[\"". $_time . ",". $_rssi. "]]");
 		 fclose($f2);
 	 }
 	 $f2 = $_id. 'RSSI.json';
