@@ -1,6 +1,6 @@
 <html>
   <head>
-   <title>Demonstrateur SigFox</title>
+   <title>LPWAN demonstration</title>
   </head>
   <body>
   <?php
@@ -26,6 +26,12 @@
 							 ."\"avgSignal\" :\"" . $_avgSignal . "\" }\n" );
        fclose($fl);
      }
+	 if ( $f2 = fopen(($_id. 'RSSI.json','a')) {
+		 fwrite($f2, "\n[\"". $_time . "\,". $_signal . "]]");
+		 fclose($f2);
+	 }
+	 $f2 = $_id. 'RSSI.json';
+	 file_put_contents($f2,str_replace(']]\n[','],\n[',file_get_contents($f2)));
   ?>
   </body>
 </html>
