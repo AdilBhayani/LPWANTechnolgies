@@ -13,7 +13,8 @@
      $_rssi = $_GET["rssi"];
      $_data = $_GET["data"];
      $_avgSignal = $_GET["avgSignal"];
-
+     $_dt = new DateTime("@$_time");
+     $_dt = $_dt->format('H:i:s');
      if ( $fl = fopen(('sigfoxData' .$_id. '.json'),'a')) {
        fwrite($fl,"\"data\": { \"id\" : \"". $_id . "\", "
 		                     ."\"time\" :\"" . $_time . "\", "
@@ -27,7 +28,7 @@
        fclose($fl);
      }
 	 if ( $f2 = fopen(($_id. 'RSSI.json'),'a')) {
-		 fwrite($f2, "[\"". $_time . "\",". $_rssi. "]]");
+		 fwrite($f2, "[\"". $_dt . "\",". $_rssi. "]]");
 		 fclose($f2);
 	 }
 	 $f2 = $_id. 'RSSI.json';
