@@ -9,8 +9,12 @@
 			url: '3E3370RSSI.json',
 			type: 'get',
 			success: function (chartData) {
-			console.log(chartData);
+			  console.log(chartData);
 			  var data = google.visualization.arrayToDataTable(chartData);
+			  if (data.length > 50) {
+				  data = data.slice(Math.max(data.length - 50, 1));
+			  }
+			  
 			  var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 			  var options = {
 				  width: 1000,
