@@ -11,7 +11,12 @@
 			success: function (chartData) {
 			  console.log(chartData);
 			  if (chartData.length > 50) {
-				  chartData = chartData.slice(Math.max(chartData.length - 50, 1));
+			      var first = [];
+                  first.push(chartData[0]);
+                  console.log(first);
+                  chartData = chartData.slice(Math.max(chartData.length - 50, 1));
+                  chartData = first.concat(chartData);
+                  console.log(chartData);
 			  }
 			  var data = google.visualization.arrayToDataTable(chartData);
 			  var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
