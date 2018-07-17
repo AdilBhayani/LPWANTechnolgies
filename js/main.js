@@ -10,11 +10,10 @@
 			type: 'get',
 			success: function (chartData) {
 			  console.log(chartData);
-			  var data = google.visualization.arrayToDataTable(chartData);
-			  if (data.length > 50) {
-				  data = data.slice(Math.max(data.length - 50, 1));
+			  if (chartData.length > 50) {
+				  chartData = chartData.slice(Math.max(chartData.length - 50, 1));
 			  }
-			  
+			  var data = google.visualization.arrayToDataTable(chartData);
 			  var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 			  var options = {
 				  width: 1000,
