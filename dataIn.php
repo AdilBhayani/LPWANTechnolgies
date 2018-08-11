@@ -34,6 +34,13 @@
         }
         $f2 = $_id. 'RSSI.json';
         file_put_contents($f2,str_replace(']][','],[',file_get_contents($f2)));
+		
+		if ( $f2 = fopen(($_id. 'SNR.json'),'a')) {
+            fwrite($f2, "[\"". $_dt . "\",". $_signal. "]]");
+            fclose($f2);
+        }
+        $f2 = $_id. 'SNR.json';
+        file_put_contents($f2,str_replace(']][','],[',file_get_contents($f2)));
     }
   ?>
   </body>
