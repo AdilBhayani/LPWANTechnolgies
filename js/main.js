@@ -21,10 +21,21 @@
 			  var data = google.visualization.arrayToDataTable(chartData);
 			  var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 			  var options = {
-				  width: 800,
-				  height: 600,
+			      chartArea: {
+                    left: 50,
+                    width: '100%'
+                  },
+                  legend: {
+                    position: 'bottom'
+                  },
+                  width: '100%',
+                  height: 400,
+                  title: "",
+				  titlePosition: "none",
 				  chart: {
-					"title": 'Sigfox 3E3370 RSSI'
+					title: "",
+					titlePosition: "none"
+					
 				  },    
 				  hAxis: {
 					title: "Time",
