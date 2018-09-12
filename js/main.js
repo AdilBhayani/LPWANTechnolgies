@@ -24,9 +24,14 @@
                   chartData = first.concat(chartData);
                   //console.log(chartData);
 			  }
-			  var data = google.visualization.arrayToDataTable(chartData);
+			  var data = new google.visualization.DataTable();
+			  data.addColumn('string', 'Time');
+			  data.addColumn('number', 'Buried node');
+			  data.addColumn('number', 'Surface node');
+			  data.addRows(chartData);
 			  var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 			  var options = {
+			      interpolateNulls: true,
 			      chartArea: {
                     left: 50,
                     width: '100%',
