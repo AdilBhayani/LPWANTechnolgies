@@ -10,10 +10,16 @@
 			type: 'get',
 			success: function (chartData) {
 			  if (chartData.length > 0){
-				  console.log(chartData[chartData.length -1]);
-				  var value = chartData[chartData.length -1][1].toString() + ' dBm at ' + chartData[chartData.length -1][0].toString();
-				  if (document.getElementById('buried').innerHTML != value){
-					document.getElementById('buried').innerHTML = value;
+				  //console.log(chartData[chartData.length -1]);
+				  var elementId = "buried";
+				  var index = 1;
+				  if (chartData[chartData.length -1][1] == null){
+					  index = 2;
+					  elementId = "surface";
+				  }
+				  var value = chartData[chartData.length -1][index].toString() + ' dBm at ' + chartData[chartData.length -1][0].toString();
+				  if (document.getElementById(elementId).innerHTML != value){
+					document.getElementById(elementId).innerHTML = value;
 				  }
 			  }
 			  if (chartData.length > 50) {
