@@ -5,11 +5,12 @@
 		setInterval(drawChart, 5000);
 
 		function drawChart() {
+		  //document.getElementById('buried').innerHTML = '-92 dBm';
 		  $.ajax({
 			url: '../3E3370RSSI.json',
 			type: 'get',
 			success: function (chartData) {
-			  //console.log(chartData);
+			  console.log(chartData[chartData.length -1]);
 			  if (chartData.length > 50) {
 			      var first = [];
                   first.push(chartData[0]);
