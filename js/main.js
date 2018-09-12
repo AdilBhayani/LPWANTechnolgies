@@ -24,13 +24,13 @@
 				  width: 800,
 				  height: 600,
 				  chart: {
-					title: 'Sigfox 3E3370 RSSI'
+					"title": 'Sigfox 3E3370 RSSI'
 				  },    
 				  hAxis: {
-						 title: "Time",
+					title: "Time",
 				  },
 				  vAxis: {
-					title: "RSSI"         
+					title: "RSSI (dBm)"         
 				  }
 				};
 			  chart.draw(data,options);
