@@ -42,7 +42,7 @@
         $f2 = $_id. 'SNR.json';
         file_put_contents($f2,str_replace(']][','],[',file_get_contents($f2)));
 		
-		if (strcmp($_id,"3E3370") == 0 or strcmp($_id,"3E3652"){
+		if (strcmp($_id,"3E3370") == 0 or strcmp($_id,"3E3652")){
 			if ( $f2 = fopen(('CombinedRSSI.json'),'a')) {
 				if (strcmp($_id,"3E3370") == 0){
 					fwrite($f2, "[\"". $_dt . "\",". $_signal. ",". "null". "]]");
