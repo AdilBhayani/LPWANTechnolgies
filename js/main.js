@@ -9,7 +9,7 @@
 			url: '../3E3370RSSI.json',
 			type: 'get',
 			success: function (chartData) {
-			  console.log(chartData);
+			  //console.log(chartData);
 			  if (chartData.length > 50) {
 			      var first = [];
                   first.push(chartData[0]);
@@ -30,7 +30,7 @@
 						 title: "Time",
 				  },
 				  vAxis: {
-					title: "Buried node"         
+					title: "RSSI"         
 				  }
 				};
 			  chart.draw(data,options);
