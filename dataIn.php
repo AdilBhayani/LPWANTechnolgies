@@ -45,9 +45,9 @@
 		if (strcmp($_id,"3E3370") == 0 or strcmp($_id,"3E3652"){
 			if ( $f2 = fopen(('CombinedRSSI.json'),'a')) {
 				if (strcmp($_id,"3E3370") == 0){
-					fwrite($f2, "[\"". $_dt . "\",". $_signal. ". "\",". "null". "]]");
+					fwrite($f2, "[\"". $_dt . "\",". $_signal. ",". "null". "]]");
 				}else{
-					fwrite($f2, "[\"". $_dt . "\",". "null". ". "\",". $_signal. "]]");
+					fwrite($f2, "[\"". $_dt . "\",". "null". ",". $_signal. "]]");
 				}
 				fclose($f2);
 			}
