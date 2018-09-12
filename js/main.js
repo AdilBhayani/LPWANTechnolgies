@@ -38,6 +38,7 @@
 			  var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 			  var options = {
 			      interpolateNulls: true,
+			      pointSize: 8,
 			      chartArea: {
                     left: 50,
                     width: '100%',
