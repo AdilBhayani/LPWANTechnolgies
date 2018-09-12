@@ -5,12 +5,15 @@
 		setInterval(drawChart, 5000);
 
 		function drawChart() {
-		  //document.getElementById('buried').innerHTML = '-92 dBm';
+		  document.getElementById('buried').innerHTML = '-92 dBm';
 		  $.ajax({
 			url: '../3E3370RSSI.json',
 			type: 'get',
 			success: function (chartData) {
-			  console.log(chartData[chartData.length -1]);
+			  if (chartData.length > 0){
+				  console.log(chartData[chartData.length -1]);
+				  document.getElementById('buried').innerHTML = chartData[chartData.length -1].toString() + ' dBm';
+			  }
 			  if (chartData.length > 50) {
 			      var first = [];
                   first.push(chartData[0]);
