@@ -6,7 +6,7 @@
 
 		function drawChart() {
 		  $.ajax({
-			url: '../3E3370RSSI.json',
+			url: '../CombinedRSSI.json',
 			type: 'get',
 			success: function (chartData) {
 			  if (chartData.length > 0){

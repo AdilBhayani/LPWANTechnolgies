@@ -42,14 +42,18 @@
         $f2 = $_id. 'SNR.json';
         file_put_contents($f2,str_replace(']][','],[',file_get_contents($f2)));
 		
-		/*
-		if ( $f2 = fopen(($_id. 'SNR.json'),'a')) {
-            fwrite($f2, "[\"". $_dt . "\",". $_signal. "]]");
-            fclose($f2);
-        }
-        $f2 = $_id. 'SNR.json';
-        file_put_contents($f2,str_replace(']][','],[',file_get_contents($f2)));
-		*/
+		if (strcmp($_id,"3E3370") == 0 or strcmp($_id,"3E3652"){
+			if ( $f2 = fopen(('CombinedRSSI.json'),'a')) {
+				if (strcmp($_id,"3E3370") == 0){
+					fwrite($f2, "[\"". $_dt . "\",". $_signal. ". "\",". "null". "]]");
+				}else{
+					fwrite($f2, "[\"". $_dt . "\",". "null". ". "\",". $_signal. "]]");
+				}
+				fclose($f2);
+			}
+			$f2 = 'CombinedRSSI.json';
+			file_put_contents($f2,str_replace(']][','],[',file_get_contents($f2)));
+		}
     }
   ?>
   </body>
