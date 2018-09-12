@@ -23,20 +23,14 @@
 			  var options = {
 			      chartArea: {
                     left: 50,
-                    width: '100%'
+                    width: '100%',
+                    top: 35
                   },
                   legend: {
                     position: 'bottom'
                   },
                   width: '100%',
                   height: 400,
-                  title: "",
-				  titlePosition: "none",
-				  chart: {
-					title: "",
-					titlePosition: "none"
-					
-				  },    
 				  hAxis: {
 					title: "Time",
 				  },
