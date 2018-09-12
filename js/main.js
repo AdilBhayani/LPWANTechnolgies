@@ -13,16 +13,16 @@
 			  if (chartData.length > 50) {
 			      var first = [];
                   first.push(chartData[0]);
-                  console.log(first);
+                  //console.log(first);
                   chartData = chartData.slice(Math.max(chartData.length - 50, 1));
                   chartData = first.concat(chartData);
-                  console.log(chartData);
+                  //console.log(chartData);
 			  }
 			  var data = google.visualization.arrayToDataTable(chartData);
 			  var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 			  var options = {
-				  width: 1000,
-				  height: 800,
+				  width: 800,
+				  height: 600,
 				  chart: {
 					title: 'Sigfox 3E3370 RSSI'
 				  },    
@@ -30,7 +30,7 @@
 						 title: "Time",
 				  },
 				  vAxis: {
-					title: "RSSI"         
+					title: "Buried node"         
 				  }
 				};
 			  chart.draw(data,options);
