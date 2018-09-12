@@ -12,7 +12,10 @@
 			success: function (chartData) {
 			  if (chartData.length > 0){
 				  console.log(chartData[chartData.length -1]);
-				  document.getElementById('buried').innerHTML = chartData[chartData.length -1].toString() + ' dBm';
+				  var value = chartData[chartData.length -1][1].toString() + ' dBm at ' chartData[chartData.length -1][0].toString();
+				  if (document.getElementById('buried').innerHTML != value){
+					document.getElementById('buried').innerHTML = value;
+				  }
 			  }
 			  if (chartData.length > 50) {
 			      var first = [];
