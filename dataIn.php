@@ -62,9 +62,9 @@
 			
 			if ( $f2 = fopen(('CombinedMoisture.json'),'a')) {
 				if (strcmp($_id,"3E3370") == 0){
-					fwrite($f2, "[\"". $_dt . "\",". $valuesArray[0]. ",". "null". "]]");
+					fwrite($f2, "[\"". $_dt . "\",". $valuesArray[0] * 0.33 . ",". "null". "]]");
 				}else{
-					fwrite($f2, "[\"". $_dt . "\",". "null". ",". $valuesArray[0]. "]]");
+					fwrite($f2, "[\"". $_dt . "\",". "null". ",". $valuesArray[0] * 0.33 . "]]");
 				}
 				fclose($f2);
 			}
@@ -73,9 +73,9 @@
 			
 			if ( $f2 = fopen(('CombinedTemperature.json'),'a')) {
 				if (strcmp($_id,"3E3370") == 0){
-					fwrite($f2, "[\"". $_dt . "\",". $valuesArray[1] * 0.4 . ",". "null". "]]");
+					fwrite($f2, "[\"". $_dt . "\",". $valuesArray[1]. ",". "null". "]]");
 				}else{
-					fwrite($f2, "[\"". $_dt . "\",". "null". ",". $valuesArray[1] * 0.4 . "]]");
+					fwrite($f2, "[\"". $_dt . "\",". "null". ",". $valuesArray[1]. "]]");
 				}
 				fclose($f2);
 			}
