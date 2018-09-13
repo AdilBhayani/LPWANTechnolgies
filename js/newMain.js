@@ -3,6 +3,9 @@ google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
 	var RSSIData = new google.visualization.DataTable();
+	RSSIData.addColumn('string', 'Time');
+	RSSIData.addColumn('number', 'Buried node');
+	RSSIData.addColumn('number', 'Surface node');
 	var MoistureData = new google.visualization.DataTable();
 	var TemperatureData = new google.visualization.DataTable();
 	$.ajax({
@@ -41,10 +44,6 @@ function drawChart() {
 				chartData = first.concat(chartData);
 				//console.log(chartData);
 			}
-			
-			RSSIData.addColumn('string', 'Time');
-			RSSIData.addColumn('number', 'Buried node');
-			RSSIData.addColumn('number', 'Surface node');
 			RSSIData.addRows(chartData);
 		}
 	});
@@ -72,16 +71,26 @@ function drawChart() {
 	};
 	RSSIChart.draw(data,options);
 	
-var piechart_options = {title:'Pie Chart: How Much Pizza I Ate Last Night',
-width:400,
-height:300};
-var piechart = new google.visualization.PieChart(document.getElementById('moisture_div'));
-piechart.draw(data, piechart_options);
+	var data = new google.visualization.DataTable();
+	data.addColumn('string', 'Topping');
+	data.addColumn('number', 'Slices');
+	data.addRows([
+	  ['Mushrooms', 3],
+	  ['Onions', 1],
+	  ['Olives', 1],
+	  ['Zucchini', 1],
+	  ['Pepperoni', 2]
+	]);
+	var piechart_options = {title:'Pie Chart: How Much Pizza I Ate Last Night',
+		width:400,
+		height:300};
+	var piechart = new google.visualization.PieChart(document.getElementById('moisture_div'));
+	piechart.draw(data, piechart_options);
 
-var barchart_options = {title:'Barchart: How Much Pizza I Ate Last Night',
-	   width:400,
-	   height:300,
-	   legend: 'none'};
-var barchart = new google.visualization.BarChart(document.getElementById('temperature_div'));
-barchart.draw(data, barchart_options);
-		}
+	var barchart_options = {title:'Barchart: How Much Pizza I Ate Last Night',
+		   width:400,
+		   height:300,
+		   legend: 'none'};
+	var barchart = new google.visualization.BarChart(document.getElementById('temperature_div'));
+	barchart.draw(data, barchart_options);
+}
