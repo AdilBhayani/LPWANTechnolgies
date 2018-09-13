@@ -187,7 +187,7 @@ function callbackFunction() {
 			interpolateNulls: true,
 			pointSize: 8,
 			chartArea: {
-				left: 50,
+				left: 60,
 				width: '100%',
 				top: 35
 			},

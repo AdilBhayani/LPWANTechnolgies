@@ -73,9 +73,9 @@
 			
 			if ( $f2 = fopen(('CombinedTemperature.json'),'a')) {
 				if (strcmp($_id,"3E3370") == 0){
-					fwrite($f2, "[\"". $_dt . "\",". $valuesArray[1]. ",". "null". "]]");
+					fwrite($f2, "[\"". $_dt . "\",". $valuesArray[1] * 0.4 . ",". "null". "]]");
 				}else{
-					fwrite($f2, "[\"". $_dt . "\",". "null". ",". $valuesArray[1]. "]]");
+					fwrite($f2, "[\"". $_dt . "\",". "null". ",". $valuesArray[1] * 0.4 . "]]");
 				}
 				fclose($f2);
 			}
