@@ -45,11 +45,11 @@ function callbackFunction() {
 				  }
 				  index = index - 1;
 				}
-				if (chartData.length > 50) {
+				if (chartData.length > 100) {
 					var first = [];
 					first.push(chartData[0]);
 					//console.log(first);
-					chartData = chartData.slice(Math.max(chartData.length - 50, 1));
+					chartData = chartData.slice(Math.max(chartData.length - 100, 1));
 					chartData = first.concat(chartData);
 					//console.log(chartData);
 				}
