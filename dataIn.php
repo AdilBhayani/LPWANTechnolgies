@@ -13,7 +13,8 @@
      $_rssi = $_GET["rssi"];
      $_data = $_GET["data"];
      $_avgSignal = $_GET["avgSignal"];
-     $_dt = new DateTime("@$_time", new DateTimeZone('Pacific/Auckland'));
+     $_dt = new DateTime("@$_time");
+	 $_dt->setTimezone(new DateTimeZone('Pacific/Auckland'));
      $_dt = $_dt->format('H:i:s');
      if ( $fl = fopen(('sigfoxData' .$_id. '.json'),'a')) {
        fwrite($fl,"\"data\": { \"id\" : \"". $_id . "\", "
