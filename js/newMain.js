@@ -200,7 +200,7 @@ function callbackFunction() {
 				title: "Time",
 			},
 			vAxis: {
-				title: "Temperature in degrees",
+				title: "Temperature (degrees C)",
 				viewWindow: {
 					min: 7.5,
 					max: 22.5
