@@ -57,7 +57,7 @@
 		}
 		
 		$dataStr = '';
-		for($i=0;$i<strlen($_data);$i+=2) $str .= chr(hexdec(substr($_data,$i,2)));
+		for($i=0;$i<strlen($_data);$i+=2) $dataStr .= chr(hexdec(substr($_data,$i,2)));
 		if ( $f2 = fopen(($_id. 'Moisture.json'),'a')) {
             fwrite($f2, "[\"". $_dt . "\",". $dataStr. "]]");
             fclose($f2);
