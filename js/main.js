@@ -21,6 +21,17 @@
 				  if (document.getElementById(elementId).innerHTML != value){
 					document.getElementById(elementId).innerHTML = value;
 				  }
+				  if (elementId == "buried"){
+					value = chartData[chartData.length - 2][2].toString() + ' dBm at ' + chartData[chartData.length -2][0].toString();
+					if (document.getElementById("surface").innerHTML != value){
+						document.getElementById("surface").innerHTML = value;
+					} 
+				  }else{
+					value = chartData[chartData.length - 2][1].toString() + ' dBm at ' + chartData[chartData.length -2][0].toString();
+					if (document.getElementById("buried").innerHTML != value){
+						document.getElementById("buried").innerHTML = value;
+					}   
+				  }
 			  }
 			  if (chartData.length > 50) {
 			      var first = [];
