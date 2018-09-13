@@ -138,7 +138,7 @@ function callbackFunction() {
 				position: 'bottom'
 			},
 			width: '100%',
-			height: 400,
+			height: 440,
 			hAxis: {
 				title: "Time",
 			},
@@ -167,7 +167,7 @@ function callbackFunction() {
 				position: 'bottom'
 			},
 			width: '100%',
-			height: 400,
+			height: 440,
 			hAxis: {
 				title: "Time",
 			},
@@ -195,7 +195,7 @@ function callbackFunction() {
 				position: 'bottom'
 			},
 			width: '100%',
-			height: 400,
+			height: 440,
 			hAxis: {
 				title: "Time",
 			},
