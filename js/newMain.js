@@ -18,33 +18,29 @@ function callbackFunction() {
 			url: '../CombinedRSSI.json',
 			type: 'get',
 			success: function (chartData) {
-				if (chartData.length > 1){
-					//console.log(chartData[chartData.length -1]);
-					var elementId = "buried";
-					var index = 1;
-					if (chartData[chartData.length -1][1] == null){
-						index = 2;
-						elementId = "surface";
-					}
-					var value = chartData[chartData.length -1][index].toString() + ' dBm at ' + chartData[chartData.length -1][0].toString();
-					if (document.getElementById(elementId).innerHTML != value){
-						document.getElementById(elementId).innerHTML = value;
-					}
-					if (elementId == "buried"){
-						if (chartData[chartData.length - 2][1] != null){
-							value = chartData[chartData.length - 2][1].toString() + ' dBm at ' + chartData[chartData.length -2][0].toString();
-							if (document.getElementById("surface").innerHTML != value){
-								document.getElementById("surface").innerHTML = value;
-							} 
-						}
-					}else{
-						if (chartData[chartData.length - 2][2] != null){
-							value = chartData[chartData.length - 2][2].toString() + ' dBm at ' + chartData[chartData.length -2][0].toString();
-							if (document.getElementById("buried").innerHTML != value){
-								document.getElementById("buried").innerHTML = value;
-							}   
-						}
-					}
+				var index = chartData.length - 1;
+				var set = false;
+				while (! set && index >= 0){
+				  if (chartData[index][1] != null){
+					  set = true;
+					  var rssi = chartData[index][1].toString() + ' dBm at ' + chartData[index][0].toString();
+					  if (document.getElementById("buried").innerHTML = rssi){
+						document.getElementById("buried").innerHTML = rssi;
+					  }
+				  }
+				  index = index - 1;
+				}
+				index = chartData.length - 1;
+				set = false;
+				while (! set && index >= 0){
+				  if (chartData[index][2] != null){
+					  set = true;
+					  var rssi = chartData[index][2].toString() + ' dBm at ' + chartData[index][0].toString();
+					  if (document.getElementById("surface").innerHTML = rssi){
+						document.getElementById("surface").innerHTML = rssi;
+					  }
+				  }
+				  index = index - 1;
 				}
 				if (chartData.length > 50) {
 					var first = [];
@@ -99,7 +95,7 @@ function callbackFunction() {
 			interpolateNulls: true,
 			pointSize: 8,
 			chartArea: {
-				left: 50,
+				left: 60,
 				width: '100%',
 				top: 35
 			},
@@ -112,7 +108,12 @@ function callbackFunction() {
 				title: "Time",
 			},
 			vAxis: {
-				title: "RSSI (dBm)"         
+				title: "RSSI (dBm)",   
+				viewWindow: {
+					min: -135,
+					max: -80
+				},
+				ticks: [-130, -120, -110, -100, -90, -80]					
 			}
 		};
 		RSSIChart.draw(RSSIData,options);
