@@ -58,11 +58,20 @@
 		
 		$dataStr = '';
 		for($i=0;$i<strlen($_data);$i+=2) $dataStr .= chr(hexdec(substr($_data,$i,2)));
+		$valuesArray = explode(',', $dataStr);
+		
 		if ( $f2 = fopen(($_id. 'Moisture.json'),'a')) {
-            fwrite($f2, "[\"". $_dt . "\",". $dataStr. "]]");
+            fwrite($f2, "[\"". $_dt . "\",". $valuesArray[0]. "]]");
             fclose($f2);
         }
         $f2 = $_id. 'Moisture.json';
+        file_put_contents($f2,str_replace(']][','],[',file_get_contents($f2)));
+		
+		if ( $f2 = fopen(($_id. 'Temperature.json'),'a')) {
+            fwrite($f2, "[\"". $_dt . "\",". $valuesArray[1]. "]]");
+            fclose($f2);
+        }
+        $f2 = $_id. 'Temperature.json';
         file_put_contents($f2,str_replace(']][','],[',file_get_contents($f2)));
     }
   ?>
