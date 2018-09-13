@@ -1,4 +1,4 @@
-      google.charts.load('current', {
+    google.charts.load('current', {
 	  callback: function () {
 
 		drawChart();
