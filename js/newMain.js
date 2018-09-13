@@ -102,7 +102,7 @@ function callbackFunction() {
 			  while (! set && index >= 0){
 				  if (chartData[index][1] != null){
 					  set = true;
-					  var moisture = chartData[index][1].toString() + 'degrees at ' + chartData[index][0].toString();
+					  var moisture = chartData[index][1].toString() + ' degrees at ' + chartData[index][0].toString();
 					  if (document.getElementById("soil_temperature_div").innerHTML = moisture){
 						document.getElementById("soil_temperature_div").innerHTML = moisture;
 					  }
