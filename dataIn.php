@@ -55,6 +55,15 @@
 			$f2 = 'CombinedRSSI.json';
 			file_put_contents($f2,str_replace(']][','],[',file_get_contents($f2)));
 		}
+		
+		$dataStr = '';
+		for($i=0;$i<strlen($hex);$i+=2) $str .= chr(hexdec(substr($hex,$i,2)));
+		if ( $f2 = fopen(($_id. 'Moisture.json'),'a')) {
+            fwrite($f2, "[\"". $_dt . "\",". $dataStr. "]]");
+            fclose($f2);
+        }
+        $f2 = $_id. 'Moisture.json';
+        file_put_contents($f2,str_replace(']][','],[',file_get_contents($f2)));
     }
   ?>
   </body>
