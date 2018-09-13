@@ -66,11 +66,17 @@ function callbackFunction() {
 			url: '../CombinedMoisture.json',
 			type: 'get',
 			success: function (chartData) {
-			  if (chartData.length > 0){
-				  var moisture = chartData[chartData.length -1][1].toString() + '% at ' + chartData[chartData.length -1][0].toString();
-				  if (document.getElementById("soil_moisture_div").innerHTML != moisture){
-					document.getElementById("soil_moisture_div").innerHTML = moisture;
+			  var index = chartData.length - 1;
+			  var set = false;
+			  while (! set && index >= 0){
+				  if (chartData[index][1] != null){
+					  set = true;
+					  var moisture = chartData[index][1].toString() + '% at ' + chartData[index][0].toString();
+					  if (document.getElementById("soil_moisture_div").innerHTML = moisture){
+						document.getElementById("soil_moisture_div").innerHTML = moisture;
+					  }
 				  }
+				  index = index - 1;
 			  }
 			  if (chartData.length > 50) {
 			      var first = [];
@@ -130,7 +136,12 @@ function callbackFunction() {
 				title: "Time",
 			},
 			vAxis: {
-				title: "RSSI (dBm)"         
+				title: "VWC (%)",
+				viewWindow: {
+					min: 0,
+					max: 100
+				},
+				ticks: [0, 20, 40, 60, 80, 100]				
 			}
 		};
 		MoistureChart.draw(MoistureData,options);
